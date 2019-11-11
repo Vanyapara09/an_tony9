@@ -7,7 +7,6 @@ public class Main {
         atm.refill50(400);
         atm.refill100(500);
         atm.withdrawMoney(1530);
-        atm.printAmount();
 
     }
 

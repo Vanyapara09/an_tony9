@@ -54,15 +54,8 @@ public class Atm {
 
             }
         } else b = false;
+        System.out.println(amount1);
+        System.out.println("Купюр po 100= " + kup100 + "\nKupur po 50= " + kup50 + "\nKupur po 20= " + kup20);
 
         return b;
     }
-
-    public void printAmount() {
-        if (b) {
-            System.out.println("Summa= " + e);
-            System.out.println("Купюр po 100= " + kup100 + "\nKupur po 50= " + kup50 + "\nKupur po 20= " + kup20);
-            System.out.println("Operaciya odobrena");
-        } else System.out.println("Otkloneno");
-    }
-}

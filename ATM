@@ -1,0 +1,130 @@
+package com.company;
+
+public class Atm {
+    private int kup20;
+    private int kup50;
+    private int kup100;
+    private int kol100;
+    private int kol50;
+    private int kol20;
+
+    public Atm(int kup20, int kup50, int kup100) {
+        this.kup20 = kup20;
+        this.kup50 = kup50;
+        this.kup100 = kup100;
+    }
+
+    public void refill20(int amount) {
+        kup20 += amount / 20;
+    }
+
+    public void refill50(int amount) {
+        kup50 += amount / 50;
+    }
+
+    public void refill100(int amount) {
+        kup100 += amount / 100;
+    }
+
+    public boolean withdrawMoney(int amount1) {
+        int e = amount1;
+        int s = kup20 * 20 + kup50 * 50 + kup100 * 100;
+        if (amount1 <= s) {
+            if (e % 100 >= 50) {
+                while (kup100 > 0) {
+                    if (amount1 / 100 == 0) {
+                        break;
+                    }
+                    amount1 -= 100;
+                    kol100++;
+                    kup100--;
+                }
+                if (e % 100 % 20 == 0) {
+                    while (kup50 > 0) {
+                        if (amount1 / 50 == 1) {
+                            break;
+                        }
+                        amount1 -= 50;
+                        kol50++;
+                        kup50--;
+                    }
+                    while (kup20 > 0) {
+                        if (amount1 / 20 == 0) {
+                            break;
+                        }
+                        amount1 -= 20;
+                        kol20++;
+                        kup20--;
+                    }
+                } else {
+                    while (kup50 > 0) {
+                        if (amount1 / 50 == 0) {
+                            break;
+                        }
+                        amount1 -= 50;
+                        kol50++;
+                        kup50--;
+                    }
+                    while (kup20 > 0) {
+                        if (amount1 / 20 == 0) {
+                            break;
+                        }
+                        amount1 -= 20;
+                        kol20++;
+                        kup20--;
+                    }
+                }
+            } else {
+                while (kup100 > 0) {
+                    if (amount1 / 100 == 1) {
+                        break;
+                    }
+                    amount1 -= 100;
+                    kol100++;
+                    kup100--;
+                }
+                if (e % 100 % 20 != 0) {
+                    while (kup50 > 0) {
+                        if (amount1 / 50 == 1) {
+                            break;
+                        }
+                        if (kup50 < 2) {
+                            break;
+                        }
+                        amount1 -= 50;
+                        kol50++;
+                        kup50--;
+                    }
+                    while (kup20 > 0) {
+                        if (amount1 / 20 == 0) {
+                            break;
+                        }
+                        amount1 -= 20;
+                        kol20++;
+                        kup20--;
+                    }
+                } else {
+                    while (kup50 > 0) {
+                        if (amount1 / 50 == 0) {
+                            break;
+                        }
+                        amount1 -= 50;
+                        kol50++;
+                        kup50--;
+                    }
+                    while (kup20 > 0) {
+                        if (amount1 / 20 == 0) {
+                            break;
+                        }
+                        amount1 -= 20;
+                        kol20++;
+                        kup20--;
+                    }
+                }
+            }
+            System.out.println(e);
+            System.out.println("Купюр po 100= " + kol100 + "\nKupur po 50= " + kol50 + "\nKupur po 20= " + kol20);
+            return true;
+        } else return false;
+    }
+}

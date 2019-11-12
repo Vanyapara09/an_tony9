@@ -1,0 +1,11 @@
+package com.company;
+
+public class Main {
+    public static void main(String[] args) {
+        Atm atm = new Atm(10, 1, 8);
+        atm.refill20(300);
+        atm.refill50(50);
+        atm.refill100(500);
+        atm.withdrawMoney(1530);
+    }
+}
